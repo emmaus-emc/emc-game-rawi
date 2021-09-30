@@ -4,7 +4,7 @@ Deze game is gebaseerd op het template voor 4HV van het Emmauscollege Rotterdam
 Gemaakt door: Rawi Bidar
 
 ### Beschrijving
-Dit spel is een shooter. 
+Dit spel is een shooter.
 De speler moet vijanden ontwijken. 
 Vijanden kunnen worden neergeschoten. 
 Als de speler een vijand raakt dan verliest de speler health. 

@@ -21,6 +21,9 @@ var spelerY = 600; // y-positie van speler
 /* functies die je gebruikt in je game           */
 /* ********************************************* */
 
+// speler data
+
+
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
@@ -56,11 +59,12 @@ var tekenAlles = function () {
   // kogel
 
   // speler
-  fill("white");
+  fill("lightblue");
   rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("black");
-  ellipse(spelerX, spelerY, 10, 10);
-
+  fill("silver");
+  rect(spelerX - 25, spelerY, 50, 25,);
+  fill('red');
+  rect(spelerX + 12, spelerY - 25, 12,25)
   // punten en health
 
 };
@@ -87,7 +91,7 @@ function setup() {
   createCanvas(1280, 720);
 
   // Kleur de achtergrond blauw, zodat je het kunt zien
-  background('blue');
+  background('white');
 }
 
 /**
