@@ -16,6 +16,8 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
+var vijandX = 600 // x-positie vijand
+var vijandY = 200 // y-positie vijand
 
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
@@ -36,6 +38,13 @@ var KEY_DOWN = 40;
  */
 var beweegAlles = function () {
   // vijand
+
+  vijandY = vijandY +15
+
+  if (vijandY > 721){
+  vijandY = 0;
+  }
+  
 
   // kogel
 
@@ -78,6 +87,19 @@ var tekenAlles = function () {
 
   // vijand
 
+fill("blue");
+rect(vijandX - 25, vijandY - 25, 50, 50);
+
+fill("black");
+rect(vijandX - 25, vijandY, 50, 25,);
+
+fill('grey');
+rect(vijandX + 12, vijandY - 25, 12,25)
+
+fill('grey');
+rect(vijandX - 24, vijandY - 25, 12,25)
+
+
   // kogel
 
   // speler
@@ -85,14 +107,17 @@ var tekenAlles = function () {
 
 
 
-  fill("red");
-  rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("black");
-  rect(spelerX - 25, spelerY, 50, 25,);
-  fill('grey');
-  rect(spelerX + 12, spelerY - 25, 12,25)
-  fill('grey');
-  rect(spelerX - 24, spelerY - 25, 12,25)
+fill("red");
+rect(spelerX - 25, spelerY - 25, 50, 50);
+
+fill("black");
+rect(spelerX - 25, spelerY, 50, 25,);
+
+fill('grey');
+rect(spelerX + 12, spelerY - 25, 12,25)
+
+fill('grey');
+rect(spelerX - 24, spelerY - 25, 12,25)
   // punten en health
 
 };
