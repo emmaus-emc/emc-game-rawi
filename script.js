@@ -70,7 +70,7 @@ var verwerkBotsing = function () {
  * Tekent spelscherm
  */
 var tekenAlles = function () {
-  fill("darkorange");
+  fill("black");
   rect(0,0,1280,720)
   
   
@@ -85,13 +85,13 @@ var tekenAlles = function () {
 
 
 
-  fill("pink");
+  fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
-  fill("lightgreen");
+  fill("black");
   rect(spelerX - 25, spelerY, 50, 25,);
-  fill('lightblue');
+  fill('grey');
   rect(spelerX + 12, spelerY - 25, 12,25)
-  fill('lightblue');
+  fill('grey');
   rect(spelerX - 24, spelerY - 25, 12,25)
   // punten en health
 
