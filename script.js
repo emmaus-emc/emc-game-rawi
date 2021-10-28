@@ -32,7 +32,7 @@ var KEY_DOWN = 40;
 
 // speler data
 
-
+ 
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
