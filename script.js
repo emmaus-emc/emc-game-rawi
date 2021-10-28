@@ -90,9 +90,20 @@ var beweegAlles = function () {
 
 
 var verwerkBotsing = function () {
-  // botsing speler tegen vijand
 
-  // botsing kogel tegen vijand
+  if (
+    (vijandX - spelerX) < 50 &&
+    (vijandX - spelerX) > -50 &&
+    (vijandY - spelerY) < 50 &&
+    (vijandY - spelerY) > -50 
+     ) {
+       console.log("botsing")
+     }
+
+
+
+
+
 
 };
 
