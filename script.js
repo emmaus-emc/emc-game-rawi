@@ -39,17 +39,18 @@ var KEY_DOWN = 40;
 var beweegAlles = function () {
   // vijand
 
-  vijandY = vijandY +15
+  vijandY = vijandY + 10
 
-  if (vijandY > 721){
-  vijandY = 0;
+
+  if (vijandY > 721) {
+    vijandY = 0;
   }
-  
+
 
   // kogel
 
   // speler
-if (keyIsDown(KEY_LEFT)) {
+  if (keyIsDown(KEY_LEFT)) {
     spelerX = spelerX - 10;
   }
   if (keyIsDown(KEY_RIGHT)) {
@@ -58,16 +59,36 @@ if (keyIsDown(KEY_LEFT)) {
   if (keyIsDown(KEY_UP)) {
     spelerY = spelerY - 10;
   }
-  if (keyIsDown(KEY_DOWN)){
+  if (keyIsDown(KEY_DOWN)) {
     spelerY = spelerY + 10;
   }
-  };
+  if (spelerX < 0){
+  spelerX = 1280 }
+   
+  if (spelerX > 1280){
+    spelerX = 0;
+  }
 
-/**
- * Checkt botsingen
+  if (spelerY > 720) {
+    spelerY = 720;
+  }
+  if (spelerY < 0) {
+    spelerY = 0;
+  }
+
+
+};
+
+/*
+ Checkt botsingen
  * Verwijdert neergeschoten vijanden
  * Updatet globale variabelen punten en health
  */
+
+
+
+
+
 var verwerkBotsing = function () {
   // botsing speler tegen vijand
 
@@ -80,24 +101,24 @@ var verwerkBotsing = function () {
  */
 var tekenAlles = function () {
   fill("black");
-  rect(0,0,1280,720)
-  
-  
+  rect(0, 0, 1280, 720)
+
+
   // achtergrond
 
   // vijand
 
-fill("blue");
-rect(vijandX - 25, vijandY - 25, 50, 50);
+  fill("blue");
+  rect(vijandX - 25, vijandY - 25, 50, 50);
 
-fill("black");
-rect(vijandX - 25, vijandY, 50, 25,);
+  fill("black");
+  rect(vijandX - 25, vijandY, 50, 25);
 
-fill('grey');
-rect(vijandX + 12, vijandY - 25, 12,25)
+  fill('grey');
+  rect(vijandX + 12, vijandY - 25, 12, 25)
 
-fill('grey');
-rect(vijandX - 24, vijandY - 25, 12,25)
+  fill('grey');
+  rect(vijandX - 24, vijandY - 25, 12, 25)
 
 
   // kogel
@@ -106,21 +127,25 @@ rect(vijandX - 24, vijandY - 25, 12,25)
 
 
 
+  
+  fill("red");
+  rect(spelerX - 25, spelerY - 25, 50, 50);
+ 
+  fill("black");
+  rect(spelerX - 25, spelerY, 50, 25);
 
-fill("red");
-rect(spelerX - 25, spelerY - 25, 50, 50);
+  fill('grey');
+  rect(spelerX + 12, spelerY - 25, 12, 25)
 
-fill("black");
-rect(spelerX - 25, spelerY, 50, 25,);
-
-fill('grey');
-rect(spelerX + 12, spelerY - 25, 12,25)
-
-fill('grey');
-rect(spelerX - 24, spelerY - 25, 12,25)
+  fill('grey');
+  rect(spelerX - 24, spelerY - 25, 12, 25)
   // punten en health
 
 };
+
+
+
+
 
 /**
  * return true als het gameover is
@@ -175,4 +200,3 @@ function draw() {
   }
 }
 
-  
