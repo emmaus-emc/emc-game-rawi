@@ -1,10 +1,10 @@
 /* Game opdracht
-   Informatica - Emmauscollege Rotterdam
-   Template voor een game in JavaScript met de p5 library
+  Informatica - Emmauscollege Rotterdam
+  Template voor een game in JavaScript met de p5 library
 
-   Begin met dit template voor je game opdracht,
-   voeg er je eigen code aan toe.
- */
+  Begin met dit template voor je game opdracht,
+  voeg er je eigen code aan toe.
+*/
 
 /* ********************************************* */
 /* globale variabelen die je gebruikt in je game */
@@ -24,6 +24,8 @@ var KEY_RIGHT = 39;
 var KEY_UP = 38;
 var KEY_DOWN = 40;
 
+var HP = 50;
+
 
 
 /* ********************************************* */
@@ -32,7 +34,7 @@ var KEY_DOWN = 40;
 
 // speler data
 
- 
+
 /**
  * Updatet globale variabelen met posities van speler, vijanden en kogels
  */
@@ -62,18 +64,19 @@ var beweegAlles = function () {
   if (keyIsDown(KEY_DOWN)) {
     spelerY = spelerY + 10;
   }
-  if (spelerX < 0){
-  spelerX = 1280 }
-   
-  if (spelerX > 1280){
+  if (spelerX < 0) {
+    spelerX = 1280
+  }
+
+  if (spelerX > 1280) {
     spelerX = 0;
   }
 
-  if (spelerY > 720) {
+  if (spelerY > 710) {
     spelerY = 720;
   }
   if (spelerY < 0) {
-    spelerY = 0;
+    spelerY = 10;
   }
 
 
@@ -95,10 +98,11 @@ var verwerkBotsing = function () {
     (vijandX - spelerX) < 50 &&
     (vijandX - spelerX) > -50 &&
     (vijandY - spelerY) < 50 &&
-    (vijandY - spelerY) > -50 
-     ) {
-       console.log("botsing")
-     }
+    (vijandY - spelerY) > -50
+  ) {
+    console.log("botsing");
+    HP = HP - 1;
+  }
 
 
 
@@ -111,11 +115,12 @@ var verwerkBotsing = function () {
  * Tekent spelscherm
  */
 var tekenAlles = function () {
-  fill("black");
-  rect(0, 0, 1280, 720)
+
 
 
   // achtergrond
+  fill("black");
+  rect(0, 0, 1280, 720)
 
   // vijand
 
@@ -138,10 +143,10 @@ var tekenAlles = function () {
 
 
 
-  
+
   fill("red");
   rect(spelerX - 25, spelerY - 25, 50, 50);
- 
+
   fill("black");
   rect(spelerX - 25, spelerY, 50, 25);
 
@@ -151,6 +156,10 @@ var tekenAlles = function () {
   fill('grey');
   rect(spelerX - 24, spelerY - 25, 12, 25)
   // punten en health
+  textSize(32);
+  text("HP = " + (HP), 100, 50);
+
+
 
 };
 
@@ -163,7 +172,12 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  return false;
+  if (HP < 0) {
+    return true;
+  } else {
+    return false;
+  }
+
 };
 
 /* ********************************************* */
@@ -206,7 +220,9 @@ function draw() {
   }
   if (spelStatus === GAMEOVER) {
     // teken game-over scherm
-
+    fill("white")
+    textSize(40);
+    text("druk op reload voor nog een game", 400, 400)
 
   }
 }
