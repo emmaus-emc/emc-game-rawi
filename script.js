@@ -26,6 +26,8 @@ var KEY_DOWN = 40;
 
 var HP = 50;
 
+var points = 0;
+
 
 
 /* ********************************************* */
@@ -33,6 +35,7 @@ var HP = 50;
 /* ********************************************* */
 
 // speler data
+
 
 
 /**
@@ -157,8 +160,10 @@ var tekenAlles = function () {
   rect(spelerX - 24, spelerY - 25, 12, 25)
   // punten en health
   textSize(32);
-  text("HP = " + (HP), 100, 50);
-
+  text("HP = " + HP, 100, 50);
+  
+  points = points + 1;
+  text("points = " + points, 1000, 50);
 
 
 };
@@ -222,7 +227,7 @@ function draw() {
     // teken game-over scherm
     fill("white")
     textSize(40);
-    text("druk op reload voor nog een game", 400, 400)
+    text("druk op reload voor een nieuwe game", 400, 400)
 
   }
 }
