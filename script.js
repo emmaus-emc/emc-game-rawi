@@ -24,7 +24,7 @@ var KEY_RIGHT = 39;
 var KEY_UP = 38;
 var KEY_DOWN = 40;
 
-var HP = 50;
+var HP = 1;
 
 var points = 0;
 
@@ -161,7 +161,7 @@ var tekenAlles = function () {
   // punten en health
   textSize(32);
   text("HP = " + HP, 100, 50);
-  
+
   points = points + 1;
   text("points = " + points, 1000, 50);
 
