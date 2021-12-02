@@ -16,15 +16,17 @@ var spelStatus = SPELEN;
 
 var spelerX = 600; // x-positie van speler
 var spelerY = 600; // y-positie van speler
-var vijandX = 600 // x-positie vijand
-var vijandY = 200 // y-positie vijand
+var vijandX = 600; // x-positie vijand
+var vijandY = 200; // y-positie vijand
+
+
 
 var KEY_LEFT = 37;
 var KEY_RIGHT = 39;
 var KEY_UP = 38;
 var KEY_DOWN = 40;
 
-var HP = 1;
+var HP = 100;
 
 var points = 0;
 
@@ -44,13 +46,10 @@ var points = 0;
 var beweegAlles = function () {
   // vijand
 
-  vijandY = vijandY + 10
-
-
+  vijandY = vijandY + 15
   if (vijandY > 721) {
     vijandY = 0;
   }
-
 
   // kogel
 
@@ -101,8 +100,7 @@ var verwerkBotsing = function () {
     (vijandX - spelerX) < 50 &&
     (vijandX - spelerX) > -50 &&
     (vijandY - spelerY) < 50 &&
-    (vijandY - spelerY) > -50
-  ) {
+    (vijandY - spelerY) > -50) {
     console.log("botsing");
     HP = HP - 1;
   }
@@ -122,23 +120,20 @@ var tekenAlles = function () {
 
 
   // achtergrond
-  fill("black");
+  fill("green");
   rect(0, 0, 1280, 720)
 
   // vijand
-
+for (var i=0; i<3; i=i+1)
   fill("blue");
-  rect(vijandX - 25, vijandY - 25, 50, 50);
-
+  rect(vijandX +i*200 - 25, vijandY - 25, 50, 50);
   fill("black");
   rect(vijandX - 25, vijandY, 50, 25);
-
+  for (var i=0; i<3; i=i+1)
   fill('grey');
-  rect(vijandX + 12, vijandY - 25, 12, 25)
-
+  rect(vijandX +i*200 + 12, vijandY - 25, 12, 25)
   fill('grey');
-  rect(vijandX - 24, vijandY - 25, 12, 25)
-
+  rect(vijandX +i*200 - 24, vijandY - 25, 12, 25)
 
   // kogel
 
@@ -177,7 +172,7 @@ var tekenAlles = function () {
  * anders return false
  */
 var checkGameOver = function () {
-  if (HP < 0) {
+  if (HP < 1) {
     return true;
   } else {
     return false;
